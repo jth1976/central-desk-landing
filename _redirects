@@ -1,1 +1,1 @@
-/ratgeber/:slug  /ratgeber/:slug.html  200
+/ratgeber/*  /ratgeber/:splat.html  200
