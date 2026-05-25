@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ratgeber für Hausverwaltungen — Central Desk</title>
+<meta name="description" content="Alle Ratgeber-Artikel zu WEG-Recht, Mietrecht, BGH-Urteilen und Gesetzesänderungen für Hausverwaltungen.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.central-desk.de/ratgeber">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--navy:#0F1F3D;--orange:#E8630A;--bg:#F7F4EF;--border:#DDD9D2;--muted:#6B6560;}
+body{font-family:'DM Sans',sans-serif;font-size:15px;color:#1A1714;background:var(--bg);line-height:1.7;}
+nav{background:var(--navy);padding:0 5%;height:60px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:18px;color:#fff;text-decoration:none;}
+.nav-logo span{color:var(--orange);}
+.nav-back{color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;}
+main{max-width:1100px;margin:0 auto;padding:48px 5% 80px;}
+h1{font-family:'Playfair Display',serif;font-size:36px;color:var(--navy);margin-bottom:8px;}
+.subtitle{font-size:13px;color:var(--muted);margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border);}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.filter-btn{padding:6px 14px;border:1px solid var(--border);border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;background:#fff;color:var(--navy);transition:all .15s;}
+.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+.archiv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;}
+.rg-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:transform .15s,box-shadow .15s;}
+.rg-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,31,61,.1);}
+.rg-icon{font-size:28px;}
+.rg-kat{font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;}
+.rg-titel{font-size:14px;font-weight:700;color:var(--navy);line-height:1.4;}
+.rg-desc{font-size:12px;color:var(--muted);line-height:1.6;flex:1;}
+.rg-more{font-size:12px;font-weight:700;color:var(--orange);}
+.empty{text-align:center;padding:60px;color:var(--muted);}
+footer{background:var(--navy);padding:20px 5%;text-align:center;font-size:12px;color:rgba(255,255,255,.4);}
+footer a{color:rgba(255,255,255,.55);}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">Central<span>Desk</span></a>
+  <a href="/" class="nav-back">← Zurück zur Startseite</a>
+</nav>
+<main>
+  <h1>📚 Ratgeber für Hausverwaltungen</h1>
+  <p class="subtitle">Aktuelle Urteile, Gesetzesänderungen und Praxiswissen zu WEG-Recht, Mietrecht und mehr.</p>
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterKat(this,'alle')">Alle</button>
+    <button class="filter-btn" onclick="filterKat(this,'bgh')">🏛 BGH</button>
+    <button class="filter-btn" onclick="filterKat(this,'weg')">🏢 WEG-Recht</button>
+    <button class="filter-btn" onclick="filterKat(this,'miet')">🏠 Mietrecht</button>
+    <button class="filter-btn" onclick="filterKat(this,'geg')">⚡ GEG/Energie</button>
+  </div>
+  <div class="archiv-grid" id="archiv-grid">
+    <a href="/ratgeber/bgh-v-zr-33-24-balkon-sondernutzung-urteil-aendert-abrechnungspraxis.html" class="rg-card" data-kat="bgh">
+      <div class="rg-icon">🏛</div>
+      <div class="rg-kat">Rechtsprechung</div>
+      <div class="rg-titel">Bgh V Zr 33 24 Balkon Sondernutzung Urteil Aendert Abrechnungspraxis</div>
+      <div class="rg-more">Artikel lesen →</div>
+    </a>
+
+  </div>
+</main>
+<footer>
+  &copy; 2026 Central Desk &middot; <a href="/impressum">Impressum</a> &middot; <a href="/datenschutz">Datenschutz</a>
+</footer>
+<script>
+function filterKat(btn, kat){
+  document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.rg-card').forEach(function(c){
+    if(kat==='alle'){ c.style.display=''; return; }
+    var text = (c.dataset.kat||'').toLowerCase();
+    c.style.display = text.includes(kat) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
