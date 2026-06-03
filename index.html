@@ -1338,14 +1338,78 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
 <section class="sec" id="demo">
   <div class="demo-outer">
     <div class="center reveal" style="margin-bottom:32px;">
-      <div class="eyebrow">Demo anfordern</div>
+      <div class="eyebrow">Jetzt starten</div>
       <h2 class="sec-title">Überzeugen Sie sich selbst.<br>Kostenlos. Unverbindlich.</h2>
-      <p class="sec-sub">Wir richten Ihre persönliche Demo-Umgebung ein &mdash; alle Module freigeschaltet, echte Testdaten, sofort loslegen. Keine Kreditkarte erforderlich.</p>
+      <p class="sec-sub">Direkt loslegen mit 14 Tagen kostenlosem Zugang — oder Demo anfordern und wir melden uns.</p>
     </div>
+
+    <!-- Tab-Navigation -->
+    <div style="display:flex;gap:0;max-width:720px;margin:0 auto 24px;background:rgba(255,255,255,.06);border-radius:12px;padding:4px;">
+      <button id="tab-signup" onclick="showTab('signup')"
+        style="flex:1;padding:12px 20px;border:none;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;background:#E8630A;color:#fff;transition:all .2s;">
+        🚀 14 Tage kostenlos starten
+      </button>
+      <button id="tab-demo" onclick="showTab('demo')"
+        style="flex:1;padding:12px 20px;border:none;border-radius:9px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;background:transparent;color:rgba(255,255,255,.55);transition:all .2s;">
+        📋 Demo anfordern
+      </button>
+    </div>
+
     <div class="demo-box reveal">
       <div class="demo-notice">
         🔄 <strong>Hinweis zur Demo-Umgebung:</strong> Demo-Daten werden täglich um 00:00 Uhr automatisch zurückgesetzt. Bitte keine produktiven Daten eingeben. Die Demo dient ausschließlich zur Funktionsprüfung.
       </div>
+      <!-- SIGNUP PANEL -->
+      <div id="signup-panel">
+        <div class="demo-notice" style="background:rgba(232,99,10,.12);border:1px solid rgba(232,99,10,.3);">
+          ✅ <strong>Sofort loslegen:</strong> Ihr Account wird in Sekunden eingerichtet. Keine Kreditkarte, kein Risiko. 14 Tage alle Module kostenlos.
+        </div>
+        <div id="signup-inner">
+          <div class="fg">
+            <div class="fg-group"><label class="fg-label">Vorname *</label><input type="text" class="fg-inp" id="s-vorname" placeholder="Max" required></div>
+            <div class="fg-group"><label class="fg-label">Nachname *</label><input type="text" class="fg-inp" id="s-nachname" placeholder="Mustermann" required></div>
+            <div class="fg-group full"><label class="fg-label">Firma / Verwaltungsgesellschaft *</label><input type="text" class="fg-inp" id="s-firma" placeholder="Muster Hausverwaltung GmbH" required></div>
+            <div class="fg-group"><label class="fg-label">E-Mail *</label><input type="email" class="fg-inp" id="s-email" placeholder="max@muster.de" required></div>
+            <div class="fg-group">
+              <label class="fg-label">App-Adresse * <span style="font-size:10px;opacity:.6;font-weight:400;">(z.B. muster-hausverwaltung)</span></label>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <span style="font-size:12px;color:rgba(255,255,255,.4);white-space:nowrap;">app.central-desk.de?mandant=</span>
+                <input type="text" class="fg-inp" id="s-mandant" placeholder="muster-hausverwaltung"
+                  style="flex:1;" oninput="validateMandantId(this)"
+                  pattern="[a-z0-9][a-z0-9-]{2,29}" required>
+              </div>
+              <div id="s-mandant-hint" style="font-size:11px;margin-top:4px;color:rgba(255,255,255,.4);">Nur Kleinbuchstaben, Zahlen und Bindestriche. 3-30 Zeichen.</div>
+            </div>
+            <div class="fg-group">
+              <label class="fg-label">PIN (min. 4 Stellen) *</label>
+              <input type="password" class="fg-inp" id="s-pin" placeholder="z.B. 4821" inputmode="numeric" maxlength="8" required>
+              <div style="font-size:11px;margin-top:4px;color:rgba(255,255,255,.4);">Mit diesem PIN melden Sie sich in der App an. Merken Sie ihn gut!</div>
+            </div>
+            <div class="fg-group">
+              <label class="fg-label">PIN wiederholen *</label>
+              <input type="password" class="fg-inp" id="s-pin2" placeholder="PIN wiederholen" inputmode="numeric" maxlength="8" required>
+            </div>
+            <label class="fg-check">
+              <input type="checkbox" id="s-ds" required>
+              Ich stimme der Verarbeitung meiner Daten gemäß <a href="/datenschutz" target="_blank" style="color:rgba(255,255,255,.6);text-decoration:underline;">Datenschutzerklärung</a> zu.
+            </label>
+            <div id="s-error" style="color:#fca5a5;font-size:13px;min-height:18px;text-align:center;margin-top:-8px;"></div>
+            <button class="fg-submit" onclick="submitSignup()" style="background:linear-gradient(135deg,#E8630A,#c44d00);">
+              🚀 Account jetzt erstellen →
+            </button>
+          </div>
+        </div>
+        <div id="signup-success" style="display:none;text-align:center;padding:32px 16px;">
+          <div style="font-size:48px;margin-bottom:16px;">🎉</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:24px;color:#4ADE80;margin-bottom:12px;">Account erstellt!</h3>
+          <p id="signup-success-text" style="font-size:14px;color:rgba(255,255,255,.7);margin-bottom:24px;line-height:1.7;"></p>
+          <a id="signup-app-link" href="#" style="display:inline-block;padding:14px 28px;background:#E8630A;color:#fff;text-decoration:none;border-radius:10px;font-weight:700;font-size:15px;">
+            App öffnen →
+          </a>
+        </div>
+      </div>
+      <!-- DEMO PANEL -->
+      <div id="demo-panel" style="display:none;">
       <div id="demo-inner">
         <div class="fg">
           <div class="fg-group"><label class="fg-label">Vorname *</label><input type="text" class="fg-inp" id="f-vorname" placeholder="Max" required></div>
@@ -1645,6 +1709,106 @@ window.addEventListener('scroll',function(){
 });
 
 // Demo submit
+// ── Tab-Switching ────────────────────────────────────────────
+function showTab(tab) {
+  var isSignup = tab === 'signup';
+  document.getElementById('signup-panel').style.display = isSignup ? '' : 'none';
+  document.getElementById('demo-panel').style.display   = isSignup ? 'none' : '';
+  var tS = document.getElementById('tab-signup');
+  var tD = document.getElementById('tab-demo');
+  tS.style.background = isSignup ? '#E8630A' : 'transparent';
+  tS.style.color      = isSignup ? '#fff' : 'rgba(255,255,255,.55)';
+  tD.style.background = isSignup ? 'transparent' : 'rgba(255,255,255,.12)';
+  tD.style.color      = isSignup ? 'rgba(255,255,255,.55)' : '#fff';
+}
+
+// ── mandant_id auto-generate from firma ──────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  var firma = document.getElementById('s-firma');
+  var mid   = document.getElementById('s-mandant');
+  if(firma && mid) {
+    firma.addEventListener('input', function() {
+      if(mid.dataset.manual) return;
+      mid.value = firma.value.toLowerCase()
+        .replace(/[äÄ]/g,'ae').replace(/[öÖ]/g,'oe').replace(/[üÜ]/g,'ue').replace(/[ß]/g,'ss')
+        .replace(/gmbh|ag|kg|ohg|gbr|\s+hausverwaltung|\s+immobilien/gi,'')
+        .replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,30);
+      validateMandantId(mid);
+    });
+    mid.addEventListener('input', function() { mid.dataset.manual = '1'; });
+  }
+});
+
+function validateMandantId(inp) {
+  var v = inp.value;
+  var hint = document.getElementById('s-mandant-hint');
+  if(/^[a-z0-9][a-z0-9-]{2,29}$/.test(v)) {
+    if(hint){ hint.style.color='#4ADE80'; hint.textContent='✓ Gültige App-Adresse: app.central-desk.de?mandant='+v; }
+    inp.style.borderColor='rgba(74,222,128,.5)';
+  } else {
+    if(hint){ hint.style.color='rgba(255,255,255,.4)'; hint.textContent='Nur Kleinbuchstaben, Zahlen und Bindestriche. 3-30 Zeichen.'; }
+    inp.style.borderColor='';
+  }
+}
+
+async function submitSignup() {
+  var vorname  = document.getElementById('s-vorname').value.trim();
+  var nachname = document.getElementById('s-nachname').value.trim();
+  var firma    = document.getElementById('s-firma').value.trim();
+  var email    = document.getElementById('s-email').value.trim();
+  var mandant  = document.getElementById('s-mandant').value.trim();
+  var pin      = document.getElementById('s-pin').value.trim();
+  var pin2     = document.getElementById('s-pin2').value.trim();
+  var ds       = document.getElementById('s-ds').checked;
+  var errEl    = document.getElementById('s-error');
+
+  function showErr(msg) { errEl.textContent = msg; }
+  errEl.textContent = '';
+
+  if(!vorname||!nachname) return showErr('Bitte Vor- und Nachname angeben.');
+  if(!firma)              return showErr('Bitte Firmenname angeben.');
+  if(!email||!email.includes('@')) return showErr('Bitte gültige E-Mail angeben.');
+  if(!/^[a-z0-9][a-z0-9-]{2,29}$/.test(mandant)) return showErr('App-Adresse ist ungültig (nur Kleinbuchstaben, Zahlen, Bindestriche).');
+  if(pin.length < 4)     return showErr('PIN muss mindestens 4 Stellen haben.');
+  if(pin !== pin2)        return showErr('Die PINs stimmen nicht überein.');
+  if(!ds)                 return showErr('Bitte stimmen Sie der Datenschutzerklärung zu.');
+
+  var btn = document.querySelector('#signup-inner .fg-submit');
+  btn.textContent = '⏳ Account wird erstellt…';
+  btn.disabled = true;
+
+  try {
+    var resp = await fetch('https://wild-queen-7dc5.jth1976.workers.dev/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ vorname, nachname, firma, email, pin, mandant_id: mandant })
+    });
+    var data = await resp.json();
+
+    if(resp.ok && data.ok) {
+      // Erfolg
+      document.getElementById('signup-inner').style.display = 'none';
+      var succ = document.getElementById('signup-success');
+      succ.style.display = '';
+      document.getElementById('signup-success-text').innerHTML =
+        'Ihr Account für <strong>' + firma + '</strong> ist bereit!<br>' +
+        'Wir haben Ihre Zugangsdaten an <strong>' + email + '</strong> gesendet.<br><br>' +
+        '🔑 PIN: <strong>' + pin + '</strong><br>' +
+        '🔗 Ihre App-Adresse: <code style="background:rgba(255,255,255,.1);padding:2px 6px;border-radius:4px;">' + data.app_url + '</code><br><br>' +
+        '<small style="opacity:.6">Trial läuft bis ' + data.trial_end + '. Danach Upgrade in den Einstellungen.</small>';
+      document.getElementById('signup-app-link').href = data.app_url;
+    } else {
+      showErr(data.error || 'Fehler bei der Registrierung. Bitte versuchen Sie es erneut.');
+      btn.textContent = '🚀 Account jetzt erstellen →';
+      btn.disabled = false;
+    }
+  } catch(e) {
+    showErr('Verbindungsfehler. Bitte prüfen Sie Ihre Internetverbindung.');
+    btn.textContent = '🚀 Account jetzt erstellen →';
+    btn.disabled = false;
+  }
+}
+
 function submitDemo(){
   var v=document.getElementById('f-vorname').value.trim();
   var n=document.getElementById('f-nachname').value.trim();
