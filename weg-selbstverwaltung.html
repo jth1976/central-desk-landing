@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEG-Selbstverwaltung mit Central Desk · Digitale Plattform für Beiräte</title>
+  <meta name="description" content="Central Desk für WEG-Selbstverwaltung: Eigentümerversammlung, Beschlüsse, Hausgeld und Dienstleister digital verwalten – ohne externen Verwalter. Für Beiräte und Eigentümer.">
+  <link rel="canonical" href="https://central-desk.de/weg-selbstverwaltung">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1f2937;background:#fff}
+    a{color:#e8630a;text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* NAV */
+    nav{display:flex;justify-content:space-between;align-items:center;padding:16px 40px;background:#0f1f3d;position:sticky;top:0;z-index:100}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-mark{background:#e8630a;color:#fff;font-weight:900;font-size:14px;padding:5px 8px;border-radius:6px}
+    .nav-logo-text{color:#fff;font-size:18px;font-weight:700}
+    .nav-links{display:flex;gap:24px;align-items:center}
+    .nav-links a{color:rgba(255,255,255,.8);font-size:14px;text-decoration:none}
+    .nav-links a:hover{color:#fff}
+    .nav-links .nav-cta{background:#e8630a;color:#fff!important;padding:8px 16px;border-radius:6px;font-weight:600}
+
+    /* HERO */
+    .hero{background:linear-gradient(135deg,#0f1f3d 0%,#1e3a5f 100%);padding:80px 40px;text-align:center;color:#fff}
+    .eyebrow{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#f59e0b;margin-bottom:16px}
+    .hero h1{font-size:clamp(32px,5vw,54px);font-weight:800;line-height:1.15;margin-bottom:20px}
+    .hero h1 em{color:#e8630a;font-style:normal}
+    .hero-sub{font-size:18px;color:rgba(255,255,255,.8);max-width:680px;margin:0 auto 32px;line-height:1.6}
+    .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+    .btn-o{background:#e8630a;color:#fff;border:none;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer}
+    .btn-o:hover{background:#cf5409}
+    .btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+    .btn-ghost:hover{border-color:#fff}
+    .hero-badges{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.6)}
+    .hero-badges span::before{content:'✓ ';color:#4ade80}
+
+    /* SECTIONS */
+    .sec{padding:72px 40px}
+    .sec.cream{background:#fafafa}
+    .sec.dark{background:#0f1f3d;color:#fff}
+    .center{text-align:center;max-width:800px;margin:0 auto 48px}
+    .sec-title{font-size:clamp(24px,4vw,40px);font-weight:800;line-height:1.2;margin-bottom:14px}
+    .sec-sub{font-size:16px;color:#6b7280;line-height:1.6;max-width:600px;margin:0 auto}
+    .sec.dark .sec-sub{color:rgba(255,255,255,.7)}
+    .sec.dark .sec-title{color:#fff}
+
+    /* TARGET USERS */
+    .target-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1000px;margin:0 auto}
+    .target-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:24px;border-left:4px solid #e8630a}
+    .target-card h3{font-size:16px;font-weight:700;margin-bottom:8px;color:#0f1f3d}
+    .target-card p{font-size:14px;color:#6b7280;line-height:1.5}
+
+    /* FEATURES */
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+    .feat-card{background:#fff;border-radius:14px;padding:28px;box-shadow:0 2px 16px rgba(0,0,0,.07)}
+    .feat-icon{font-size:32px;margin-bottom:12px}
+    .feat-card h3{font-size:18px;font-weight:700;color:#0f1f3d;margin-bottom:8px}
+    .feat-card p{font-size:14px;color:#374151;line-height:1.6}
+    .feat-badge{display:inline-block;background:#ecfdf5;color:#16a34a;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:8px}
+
+    /* COMPARE */
+    .compare-table{width:100%;max-width:800px;margin:0 auto;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08)}
+    .compare-table th{background:#0f1f3d;color:#fff;padding:14px 20px;text-align:left;font-size:14px}
+    .compare-table td{padding:12px 20px;border-bottom:1px solid #f3f4f6;font-size:14px}
+    .compare-table tr:last-child td{border:none}
+    .compare-table td:nth-child(2){text-align:center;font-weight:700;color:#16a34a}
+    .compare-table td:nth-child(3){text-align:center;color:#6b7280}
+    .compare-table tr:nth-child(even) td{background:#f9fafb}
+
+    /* PRICING */
+    .weg-price-box{background:linear-gradient(135deg,#0f1f3d,#1e3a5f);border-radius:20px;padding:48px 40px;max-width:640px;margin:0 auto;text-align:center;color:#fff}
+    .weg-price-amount{font-size:72px;font-weight:900;color:#e8630a;line-height:1}
+    .weg-price-unit{font-size:16px;color:rgba(255,255,255,.7);margin:8px 0 24px}
+    .weg-price-feats{list-style:none;text-align:left;max-width:380px;margin:0 auto 32px}
+    .weg-price-feats li{padding:7px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:14px}
+    .weg-price-feats li::before{content:'✓ ';color:#4ade80;font-weight:700}
+
+    /* STEPS */
+    .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;max-width:900px;margin:0 auto}
+    .step-card{text-align:center;padding:24px}
+    .step-nr{width:48px;height:48px;background:#e8630a;color:#fff;font-weight:900;font-size:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+    .step-card h3{font-size:16px;font-weight:700;color:#0f1f3d;margin-bottom:8px}
+    .step-card p{font-size:13px;color:#6b7280;line-height:1.5}
+
+    /* CTA BANNER */
+    .cta-banner{background:#e8630a;padding:60px 40px;text-align:center;color:#fff}
+    .cta-banner h2{font-size:clamp(24px,4vw,40px);font-weight:800;margin-bottom:16px}
+    .cta-banner p{font-size:16px;opacity:.9;margin-bottom:32px}
+    .btn-white{background:#fff;color:#e8630a;border:none;padding:14px 32px;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer}
+
+    /* FOOTER */
+    footer{background:#0f1f3d;color:rgba(255,255,255,.6);padding:32px 40px;text-align:center;font-size:13px}
+    footer a{color:rgba(255,255,255,.6);text-decoration:none}
+    footer a:hover{color:#fff}
+
+    @media(max-width:600px){nav{padding:12px 20px}.sec{padding:48px 20px}.hero{padding:60px 20px}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">CD</div>
+    <span class="nav-logo-text">Central<span style="color:#e8630a;">Desk</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="/">Für Hausverwaltungen</a>
+    <a href="/#bereiche">Funktionen</a>
+    <a href="/#pricing">Preise</a>
+    <a href="/#kontakt" class="nav-cta">Demo anfordern</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">WEG-Selbstverwaltung · Für Beiräte und Eigentümer</div>
+  <h1>Ihre WEG verwaltet sich selbst.<br><em>Central Desk macht es möglich.</em></h1>
+  <p class="hero-sub">Eigentümerversammlungen, Beschlüsse, Hausgeld, Dokumente und Dienstleister – alles digital an einem Ort. Gemacht für WEGs, die auf einen externen Verwalter verzichten oder verzichten müssen.</p>
+  <div class="hero-btns">
+    <button class="btn-o" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">🏢 Jetzt starten</button>
+    <button class="btn-ghost" onclick="document.getElementById('funktionen').scrollIntoView({behavior:'smooth'})">Alle Funktionen ansehen ↓</button>
+  </div>
+  <div class="hero-badges">
+    <span>Keine externen Verwaltungskosten</span>
+    <span>Rechtssichere Beschlusssammlung</span>
+    <span>DSGVO-konform · Server in Deutschland</span>
+    <span>Alle Eigentümer inklusive</span>
+  </div>
+</section>
+
+<!-- WARUM SELBSTVERWALTUNG -->
+<section class="sec cream">
+  <div class="center">
+    <div class="eyebrow">Immer mehr WEGs ohne Verwalter</div>
+    <h2 class="sec-title">Für WEGs, die selbst entscheiden.</h2>
+    <p class="sec-sub">Viele Gemeinschaften finden keinen Verwalter mehr – oder wollen bewusst selbst verwalten. Der Beirat übernimmt. Central Desk gibt ihm die Werkzeuge dafür.</p>
+  </div>
+  <div class="target-grid">
+    <div class="target-card">
+      <h3>🔍 Kein Verwalter verfügbar</h3>
+      <p>Gerade kleine WEGs finden oft keinen externen Verwalter mehr. Central Desk gibt dem Beirat professionelle Werkzeuge – ohne Vorkenntnisse.</p>
+    </div>
+    <div class="target-card">
+      <h3>💶 Kosten sparen</h3>
+      <p>Eine externe Verwaltung kostet 20–30 € je Einheit/Monat. Bei 10 Einheiten: 200–300 € monatlich. Central Desk kostet einen Bruchteil davon.</p>
+    </div>
+    <div class="target-card">
+      <h3>🏛 Selbstbestimmt verwalten</h3>
+      <p>Manche Gemeinschaften möchten Entscheidungen selbst treffen und nicht auf einen Verwalter angewiesen sein. Central Desk unterstützt diese Unabhängigkeit.</p>
+    </div>
+    <div class="target-card">
+      <h3>📋 Bereits Beschlossen</h3>
+      <p>Hat Ihre WEG per Mehrheitsbeschluss die Selbstverwaltung eingeführt und einen Beirat bestimmt? Dann ist Central Desk die richtige Plattform.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FUNKTIONEN -->
+<section class="sec" id="funktionen">
+  <div class="center">
+    <div class="eyebrow">Was Central Desk für Ihre WEG leistet</div>
+    <h2 class="sec-title">Alles, was Ihre WEG braucht.</h2>
+    <p class="sec-sub">Vom Beschluss bis zur Betriebskostenabrechnung – in einer Plattform, ohne Papierchaos.</p>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <div class="feat-icon">📅</div>
+      <h3>Eigentümerversammlung</h3>
+      <p>Versammlungen mit Tagesordnungs-Vorlagen vorbereiten, Einladungen versenden, Protokoll erstellen und als PDF ablegen. Alle Eigentümer werden automatisch informiert.</p>
+      <span class="feat-badge">✓ Rechtssicher</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🗳</div>
+      <h3>Abstimmungen &amp; Beschlüsse</h3>
+      <p>Umlaufbeschlüsse und Abstimmungen digital durchführen. Ergebnisse werden automatisch nach Miteigentumsanteilen (MEA) gewichtet und protokolliert.</p>
+      <span class="feat-badge">✓ MEA-gewichtet</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📚</div>
+      <h3>Beschlusssammlung</h3>
+      <p>Alle Beschlüsse der Gemeinschaft an einem Ort – nachvollziehbar dokumentiert, für alle Eigentümer jederzeit einsehbar. Gesetzlich vorgeschrieben nach § 24 WEG.</p>
+      <span class="feat-badge">✓ § 24 WEG</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">💰</div>
+      <h3>Hausgeld &amp; Wirtschaftsplan</h3>
+      <p>Wirtschaftsplan aufstellen und beschließen, Hausgeld-Zahlungen im Blick behalten, Betriebskosten abrechnen – mit PDF-Export für Eigentümer.</p>
+      <span class="feat-badge">⚠ Early Access</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📂</div>
+      <h3>Dokumente &amp; DMS</h3>
+      <p>Teilungserklärung, Protokolle, Abrechnungen und Aushänge zentral ablegen. Alle Eigentümer haben Zugriff auf ihre Unterlagen – jederzeit, von jedem Gerät.</p>
+      <span class="feat-badge">✓ Für alle Eigentümer</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🔧</div>
+      <h3>Tickets &amp; Dienstleister</h3>
+      <p>Schadensmeldungen als Tickets erfassen, Wartungen planen und Dienstleister mit direktem Portal-Zugang einbinden – direkte Kommunikation ohne E-Mail-Ketten.</p>
+      <span class="feat-badge">✓ Dienstleister-Portal</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">👥</div>
+      <h3>Eigentümer-Portal</h3>
+      <p>Jeder Eigentümer erhält einen eigenen Zugang: Dokumente einsehen, Beschlüsse lesen, Anfragen stellen – transparent und datenschutzkonform.</p>
+      <span class="feat-badge">✓ Inkl. aller Eigentümer</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📱</div>
+      <h3>Mobil &amp; überall</h3>
+      <p>Central Desk läuft auf Smartphone, Tablet und Computer. Kein Software-Download nötig. Beirat und Eigentümer können von überall zugreifen.</p>
+      <span class="feat-badge">✓ Alle Geräte</span>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:13px;color:#6b7280;margin-top:32px;">
+    ⚠ <strong>Hinweis Buchhaltung / Abrechnung:</strong> Diese Funktion befindet sich im Early Access und wird schrittweise ausgebaut. Alle anderen Funktionen sind vollständig verfügbar.
+  </p>
+</section>
+
+<!-- VERGLEICH -->
+<section class="sec cream">
+  <div class="center">
+    <div class="eyebrow">Selbstverwaltung vs. externe Verwaltung</div>
+    <h2 class="sec-title">Was spricht für Selbstverwaltung?</h2>
+  </div>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Aspekt</th>
+        <th>Central Desk · Selbstverwaltung</th>
+        <th>Externe Hausverwaltung</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Monatliche Kosten (10 Einh.)</td><td>ab 99 €/Monat gesamt</td><td>200–300 €/Monat</td></tr>
+      <tr><td>Kontrolle über Entscheidungen</td><td>Vollständige Kontrolle</td><td>Abhängig vom Verwalter</td></tr>
+      <tr><td>Reaktionszeit bei Anfragen</td><td>Sofort (eigenes Team)</td><td>Variiert stark</td></tr>
+      <tr><td>Transparenz für Eigentümer</td><td>Echtzeit-Zugang</td><td>Nur auf Anfrage</td></tr>
+      <tr><td>Dokumente &amp; Beschlüsse</td><td>Digital, sofort verfügbar</td><td>Oft in Papierform</td></tr>
+      <tr><td>Flexibilität</td><td>Jederzeit anpassbar</td><td>Vertragsgebunden</td></tr>
+      <tr><td>Know-how erforderlich</td><td>Gering (Plattform führt durch)</td><td>Kein eigenes nötig</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- PRICING -->
+<section class="sec dark">
+  <div class="center">
+    <div class="eyebrow" style="color:#f59e0b;">Transparente Preise</div>
+    <h2 class="sec-title">Ein Pauschalpreis. Alle Funktionen.</h2>
+    <p class="sec-sub">Keine Einrichtungsgebühr. Keine Modulpreise. Alle Eigentümer inklusive.</p>
+  </div>
+  <div class="weg-price-box">
+    <div style="font-size:14px;color:rgba(255,255,255,.6);margin-bottom:4px;">WEG-Selbstverwaltung · Early Bird</div>
+    <div class="weg-price-amount">99 €</div>
+    <div class="weg-price-unit">pro Monat · bis 100 Verwaltungseinheiten<br><small style="font-size:12px;">Alle Funktionen · Alle Eigentümer · Alle Zugänge</small></div>
+    <ul class="weg-price-feats">
+      <li>Eigentümerversammlung &amp; Protokolle</li>
+      <li>Abstimmungen &amp; Umlaufbeschlüsse (MEA)</li>
+      <li>Beschlusssammlung nach § 24 WEG</li>
+      <li>Eigentümer-Portal (unbegrenzte Nutzer)</li>
+      <li>Dokumentenmanagement (DMS)</li>
+      <li>Tickets, Service &amp; Dienstleister-Portal</li>
+      <li>Hausgeld &amp; Wirtschaftsplan (Early Access)</li>
+      <li>Keine Einrichtungsgebühr</li>
+    </ul>
+    <button class="btn-o" style="font-size:16px;padding:16px 40px;" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">Jetzt anfragen →</button>
+    <p style="font-size:12px;color:rgba(255,255,255,.4);margin-top:16px;">Mindestlaufzeit 12 Monate · Kündigung danach monatlich möglich</p>
+  </div>
+</section>
+
+<!-- SO GEHT ES -->
+<section class="sec">
+  <div class="center">
+    <div class="eyebrow">Einfacher Einstieg</div>
+    <h2 class="sec-title">In drei Schritten zur digitalen WEG.</h2>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-nr">1</div>
+      <h3>Anfrage &amp; Einrichtung</h3>
+      <p>Sie stellen eine Demo-Anfrage. Wir richten Ihren mandantenspezifischen Bereich ein – mit Ihrem Objektnamen und Ihren Einheiten.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-nr">2</div>
+      <h3>WEG-Daten erfassen</h3>
+      <p>Liegenschaft, Einheiten, Miteigentumsanteile (MEA) und Eigentümer anlegen. Eigentümer erhalten eine Einladung per E-Mail.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-nr">3</div>
+      <h3>Digital verwalten</h3>
+      <p>Versammlungen, Beschlüsse, Hausgeld und Dokumente laufen ab sofort an einem Ort. Der Beirat hat alles im Griff.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner" id="kontakt">
+  <h2>Starten Sie mit Ihrer WEG – noch heute.</h2>
+  <p>Fordern Sie eine persönliche Demo an. Wir zeigen Ihnen, wie Central Desk für Ihre WEG eingerichtet wird.</p>
+  <a href="/#kontakt"><button class="btn-white">📋 Demo anfordern</button></a>
+  <p style="margin-top:16px;font-size:13px;opacity:.8;">Oder direkt testen: <a href="https://app.central-desk.de" target="_blank" style="color:#fff;text-decoration:underline;">app.central-desk.de ↗</a></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:8px;">
+    <a href="/">Central Desk für Hausverwaltungen</a> ·
+    <a href="/weg-selbstverwaltung">WEG-Selbstverwaltung</a> ·
+    <a href="/#pricing">Preise</a> ·
+    <a href="/#kontakt">Kontakt</a>
+  </p>
+  <p>© 2026 Central Desk · Ein Produkt der IMMORIOR Hausverwaltung Hamburg GmbH · <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></p>
+</footer>
+
+</body>
+</html>

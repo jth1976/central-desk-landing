@@ -292,6 +292,33 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
 .calc-res-lbl{font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
 .calc-res-item.highlight .calc-res-val{color:var(--orange);font-size:32px;}
 .calc-note{font-size:11px;color:rgba(255,255,255,.3);margin-top:16px;text-align:center;line-height:1.6;}
+
+  .hero-early-bird {
+    display: inline-block;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+
+  /* 4 Bereiche */
+  .vier-bereiche-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; max-width:1100px; margin:40px auto 0; padding:0 20px; }
+  @media(max-width:900px){ .vier-bereiche-grid { grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:500px){ .vier-bereiche-grid { grid-template-columns:1fr; } }
+  .vb-card { background:#fff; border-radius:14px; padding:24px 20px; box-shadow:0 2px 12px rgba(0,0,0,.06); }
+  .vb-icon { font-size:28px; margin-bottom:10px; }
+  .vb-title { font-size:16px; font-weight:700; color:#0f1f3d; margin-bottom:12px; }
+  .vb-list { list-style:none; padding:0; margin:0; }
+  .vb-list li { font-size:13px; color:#374151; padding:3px 0; border-bottom:1px solid #f3f4f6; }
+  .vb-list li:last-child { border:none; }
+  .vb-list li::before { content:'✓ '; color:#16a34a; font-weight:700; }
+  /* Early Bird pricing card */
+  .pc.feat-eb { border:2px solid #f59e0b; }
 </style>
 </head>
 <body>
@@ -303,10 +330,10 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
     <span class="nav-logo-text">Central<span>Desk</span></span>
   </a>
   <div class="nav-links">
+    <a href="#bereiche">Funktionen</a>
     <a href="#module">Module</a>
-    <a href="#individuell">Individualisierung</a>
-    <a href="#vorteile">Vorteile</a>
     <a href="#pricing">Preise</a>
+    <a href="/weg-selbstverwaltung" style="color:#f59e0b;font-weight:600;">WEG-Selbstverwaltung</a>
     <a href="#kontakt">Kontakt</a>
     <a href="https://app.central-desk.de" target="_blank">Login ↗</a>
     <a href="#demo" class="nav-cta">Demo anfordern</a>
@@ -316,14 +343,15 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
 <!-- HERO -->
 <section class="hero">
   <div class="grid-lines"></div>
-  <h1>Hausverwaltung.<br><em>Endlich digital.</em> Wirklich.</h1>
-  <p class="hero-sub">Central Desk ist die All-in-One Plattform für WEG-, Miet-, SEV- und Gewerbeverwaltung. 70+ Module. Vollständig auf Ihre Firma individualisierbar. Kein Tool-Wirrwarr &mdash; alles vernetzt.</p>
+  <div class="hero-early-bird">🐦 Early Bird · 99 € / Monat bis 100 Einheiten · Alle Module inklusive</div>
+  <h1>Die digitale Zentrale für<br><em>moderne Hausverwaltungen.</em></h1>
+  <p class="hero-sub">Verwalten. Vermieten. Verkaufen. Organisieren. Alles in einem System.<br>Central Desk verbindet WEG, Mietverwaltung, SEV, Makler, CRM, Banking, KI und mehr &mdash; entwickelt aus der Praxis einer echten Hausverwaltung.</p>
   <div class="hero-btns">
-    <button class="btn-o" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">📋 Demo anfordern</button>
-    <button class="btn-ghost" onclick="document.getElementById('module').scrollIntoView({behavior:'smooth'})">Alle Module ansehen ↓</button>
+    <button class="btn-o" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">🚀 Jetzt kostenlos testen</button>
+    <button class="btn-ghost" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Early-Bird-Preise ansehen ↓</button>
   </div>
   <div class="hero-stats">
-    <div><div class="hs-val">70<span>+</span></div><div class="hs-lbl">Module</div></div>
+    <div><div class="hs-val"><span style="font-size:22px;">🐦</span></div><div class="hs-lbl">Early Bird ab 99 €</div></div>
     <div><div class="hs-val">WEG<span>+</span>MV<span>+</span>SEV</div><div class="hs-lbl">Alle Verwaltungsarten</div></div>
     <div><div class="hs-val">100<span>%</span></div><div class="hs-lbl">Browser-basiert</div></div>
     <div><div class="hs-val">DSGVO<span>.</span></div><div class="hs-lbl">Konform &amp; sicher</div></div>
@@ -1263,6 +1291,60 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
   </div>
 </section>
 
+
+<!-- 4 BEREICHE -->
+<section class="sec" id="bereiche" style="background:#f9fafb;">
+  <div class="center reveal">
+    <div class="eyebrow">Eine Plattform statt vieler Einzellösungen</div>
+    <h2 class="sec-title">Verwalten. Kommunizieren.<br>Geschäfte machen. Automatisieren.</h2>
+    <p class="sec-sub">Hausverwaltung besteht aus zahlreichen Prozessen. Central Desk bringt sie alle an einem Ort zusammen.</p>
+  </div>
+  <div class="vier-bereiche-grid reveal">
+    <div class="vb-card">
+      <div class="vb-icon">🏢</div>
+      <div class="vb-title">Verwalten</div>
+      <ul class="vb-list">
+        <li>WEG-Verwaltung</li><li>Mietverwaltung</li><li>SEV</li>
+        <li>Gewerbeverwaltung</li><li>Objektmanagement</li>
+        <li>Forderungsmanagement</li><li>Abrechnung &amp; Wirtschaftsplan</li>
+      </ul>
+    </div>
+    <div class="vb-card">
+      <div class="vb-icon">💬</div>
+      <div class="vb-title">Kommunizieren</div>
+      <ul class="vb-list">
+        <li>Eigentümerportal</li><li>Mieterportal</li>
+        <li>Tickets &amp; Service</li><li>Nachrichten</li>
+        <li>DMS &amp; Dokumente</li><li>Handwerker-Portal</li>
+        <li>Dienstleister-Anfragen</li>
+      </ul>
+    </div>
+    <div class="vb-card">
+      <div class="vb-icon">📈</div>
+      <div class="vb-title">Geschäfte machen</div>
+      <ul class="vb-list">
+        <li>Makler &amp; Immobilienverkauf</li><li>CRM</li>
+        <li>Interessenten-Portal</li><li>Besichtigungen</li>
+        <li>Exposé-Erstellung</li><li>Suchaufträge</li>
+        <li>Relocation Service</li>
+      </ul>
+    </div>
+    <div class="vb-card">
+      <div class="vb-icon">⚡</div>
+      <div class="vb-title">Automatisieren</div>
+      <ul class="vb-list">
+        <li>Banking &amp; BanksAPI (finAPI)</li><li>BVED</li>
+        <li>KI-Assistent</li><li>E-Signing</li>
+        <li>Workflows</li><li>Automatische Benachrichtigungen</li>
+        <li>KI-Telefonassistent (IMMI)</li>
+      </ul>
+    </div>
+  </div>
+  <p style="text-align:center;color:#6b7280;font-size:13px;margin-top:24px;">
+    ⚠ <strong>Hinweis:</strong> Der Bereich Buchhaltung / Abrechnung befindet sich im <strong>Early Access</strong> und wird kontinuierlich ausgebaut. Alle anderen Bereiche sind produktiv nutzbar.
+  </p>
+</section>
+
 <!-- PRICING -->
 <section class="sec cream" id="pricing">
   <div class="center reveal">
@@ -1270,47 +1352,54 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
     <h2 class="sec-title">Kein Kleingedrucktes.<br>Kein Feature-Gate.</h2>
     <p class="sec-sub">Alle 70+ Module in jedem Tarif inklusive. Der Unterschied: ausschließlich die Anzahl der verwalteten Einheiten. Keine Setup-Gebühr. Jahresvertrag.</p>
   </div>
+  <div class="price-note-top reveal" style="text-align:center;margin-bottom:32px;font-size:14px;color:#6b7280;">
+    Alle Tarife: Alle Module inklusive &middot; Keine Setup-Gebühr &middot; Keine Modulpreise &middot; Monatlich kündbar nach Mindestlaufzeit<br>
+    <span style="color:#d97706;font-weight:600;">⚠ Hinweis: Der Bereich Buchhaltung befindet sich im Early Access und wird kontinuierlich ausgebaut.</span>
+  </div>
   <div class="price-grid reveal">
-    <div class="pc">
-      <div class="pc-tier">Einstieg</div><div class="pc-name">Starter</div>
-      <div class="pc-amount"><sup>&euro;</sup>149<sub>/Monat</sub></div>
-      <div class="pc-disc">2-Jahresvertrag: 126,65 &euro;/Monat (&minus;15%)</div>
-      <div class="pc-desc">Für kleine und mittlere Verwaltungen bis 100 Einheiten. Voller Funktionsumfang ab Tag&nbsp;1.</div>
+    <div class="pc feat-eb">
+      <div class="pc-tier" style="background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;">🐦 Early Bird</div>
+      <div class="pc-name">Early Bird</div>
+      <div class="pc-amount"><sup>&euro;</sup>99<sub>/Monat</sub></div>
+      <div class="pc-disc">Nur für frühe Nutzer &middot; Preis bleibt dauerhaft</div>
+      <div class="pc-desc">Jetzt einsteigen. Heute sparen. Morgen mitwachsen. Alle wesentlichen Funktionen inklusive &mdash; zum Einführungspreis für die ersten Kunden.</div>
       <ul class="pc-feats">
         <li>Bis zu <strong>100 Verwaltungseinheiten</strong></li>
         <li>Alle 70+ Module inklusive</li>
-        <li>WEG, Miet- und SEV-Verwaltung</li>
-        <li>Mieter- &amp; Eigentümerportal</li>
-        <li>Support per E-Mail</li>
-        <li>Mindestlaufzeit 12 Monate</li>
+        <li>WEG, Miet-, SEV- &amp; Gewerbeverwaltung</li>
+        <li>Eigentümer- &amp; Mieterportal</li>
+        <li>Banking / BanksAPI &middot; BVED &middot; KI</li>
+        <li>CRM &middot; Makler &middot; DMS &middot; E-Signing</li>
+        <li>Keine Einrichtungsgebühr</li>
       </ul>
-      <button class="pc-btn outline" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Demo anfordern</button>
+      <button class="pc-btn orange" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Jetzt Early Bird sichern</button>
     </div>
     <div class="pc feat">
-      <div class="pc-tier feat">Empfohlen</div><div class="pc-name">Professional</div>
-      <div class="pc-amount"><sup>&euro;</sup>327<sub>,50/Monat</sub></div>
-      <div class="pc-disc">2-Jahresvertrag: 278,38 &euro;/Monat (&minus;15%)</div>
-      <div class="pc-desc">Für professionelle Verwaltungen bis 250 Einheiten. Deutlich unter dem Marktdurchschnitt.</div>
+      <div class="pc-tier feat">Wachstum</div><div class="pc-name">Professional</div>
+      <div class="pc-amount"><sup>&euro;</sup>149<sub>/Monat</sub></div>
+      <div class="pc-disc">2-Jahresvertrag: 126,65 &euro;/Monat (&minus;15%)</div>
+      <div class="pc-desc">Für wachsende Verwaltungen bis 250 Einheiten. Alle Funktionen &mdash; deutlich unter dem Marktdurchschnitt.</div>
       <ul class="pc-feats">
         <li>Bis zu <strong>250 Verwaltungseinheiten</strong></li>
         <li>Alle 70+ Module inklusive</li>
         <li>WEG + Miet + SEV + Gewerbe</li>
-        <li>finAPI Banking-Integration</li>
-        <li>DSGVO-Cockpit &amp; Rechtsmanagement</li>
+        <li>finAPI Banking-Integration &amp; BanksAPI</li>
+        <li>BVED &middot; KI &middot; Handwerker-Management</li>
+        <li>CRM &middot; Makler &middot; Forderungsmanagement</li>
         <li>Priorisierter E-Mail-Support</li>
       </ul>
-      <button class="pc-btn orange" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Demo anfordern</button>
+      <button class="pc-btn outline" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Demo anfordern</button>
     </div>
     <div class="pc">
-      <div class="pc-tier">Großverwaltung</div><div class="pc-name">Professional+</div>
-      <div class="pc-amount"><sup>&euro;</sup>327<sub>,50+</sub></div>
-      <div class="pc-disc">+ 0,99 &euro; je Einheit über 250</div>
-      <div class="pc-desc">Professional als Basis &mdash; Zusatzeinheiten linear abgerechnet. Keine versteckten Sprünge.</div>
+      <div class="pc-tier">Großverwaltung</div><div class="pc-name">Business</div>
+      <div class="pc-amount"><sup>&euro;</sup>299<sub>/Monat</sub></div>
+      <div class="pc-disc">2-Jahresvertrag: 254,15 &euro;/Monat (&minus;15%)</div>
+      <div class="pc-desc">Für professionelle Großverwaltungen bis 500 Einheiten. Skalierbar ohne Softwarewechsel.</div>
       <ul class="pc-feats">
-        <li><strong>Über 250 Einheiten</strong> &mdash; unbegrenzt</li>
-        <li>Bsp: 300 Einh. = 327,50 + 50&times;0,99 = <strong>377 €</strong></li>
-        <li>Alle Module wie Professional</li>
-        <li>2J: 278,38 € + 0,99 €/Einheit</li>
+        <li>Bis zu <strong>500 Verwaltungseinheiten</strong></li>
+        <li>Alle 70+ Module inklusive</li>
+        <li>Vollständige Plattform ohne Abstriche</li>
+        <li>Von 30 auf 500 &mdash; ein System</li>
         <li>Dedizierter Ansprechpartner</li>
       </ul>
       <button class="pc-btn outline" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">Angebot anfragen</button>
@@ -1665,16 +1754,22 @@ function calcUpdate() {
   document.getElementById('calc-einh-val').textContent = einh > 380 ? '400+' : einh;
   var tier, base, note;
   if (einh <= 100) {
-    tier = 'Starter'; base = 149.00;
-    note = 'Starter &mdash; bis 100 Einheiten &middot; Alle 70+ Module inklusive &middot; Keine Setup-Gebühr';
+    tier = '🐦 Early Bird'; base = 99.00;
+    note = 'Early Bird &mdash; bis 100 Einheiten &middot; Alle 70+ Module inklusive &middot; Keine Setup-Gebühr';
   } else if (einh <= 250) {
-    tier = 'Professional'; base = 327.50;
-    note = 'Professional &mdash; bis 250 Einheiten &middot; Alle Module inkl. finAPI &amp; Rechtsmanagement';
+    tier = 'Professional'; base = 149.00;
+    note = 'Professional &mdash; bis 250 Einheiten &middot; Alle Module inkl. finAPI, BVED, KI &amp; Makler';
+  } else if (einh <= 500) {
+    tier = 'Business'; base = 299.00;
+    note = 'Business &mdash; bis 500 Einheiten &middot; Vollständige Plattform &middot; Skalierbar ohne Softwarewechsel';
   } else {
-    tier = 'Professional+';
-    base = 327.50 + (einh - 250) * 0.99;
-    var extra = einh > 380 ? '150+' : (einh - 250);
-    note = 'Professional+ &mdash; ' + (einh>380?'400+':einh) + ' Einheiten &middot; 327,50 € + ' + extra + ' × 0,99 €';
+    tier = 'Enterprise';
+    base = 299.00;
+    note = 'Enterprise &mdash; ab 500 Einheiten &middot; Individuelles Angebot &mdash; bitte Kontakt aufnehmen';
+  }
+  // Legacy fallback (never reached but kept for structure)
+  if(false) { var extra = einh > 480 ? '150+' : (einh - 250);
+    note = 'Business &mdash; ' + (einh>480?'500+':einh) + ' Einheiten &middot; 299 € + ' + extra + ' × 0,99 €';
   }
   if (_calcLz === 2) base = Math.round(base * 0.85 * 100) / 100;
   var jahr = Math.round(base * 12);
