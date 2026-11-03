@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kunden-Login · Central Desk</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23E8630A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='14' fill='white'%3ECD%3C/text%3E%3C/svg%3E">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f1f3d;color:#fff;min-height:100vh;display:flex;flex-direction:column}
+  nav{padding:16px 24px;display:flex;align-items:center;gap:12px}
+  nav a{color:rgba(255,255,255,.75);text-decoration:none;font-size:14px}
+  nav a.logo{font-weight:700;font-size:17px;color:#fff;margin-right:auto}
+  nav a.logo span{color:#E8630A}
+  main{flex:1;display:flex;align-items:center;justify-content:center;padding:24px 16px}
+  .box{background:#fff;color:#1f2937;border-radius:14px;max-width:440px;width:100%;padding:32px 28px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  h1{font-size:22px;color:#0f1f3d;margin-bottom:6px}
+  .sub{font-size:14px;color:#6b7280;line-height:1.6;margin-bottom:22px}
+  label{display:block;font-size:12px;font-weight:700;color:#374151;margin-bottom:6px}
+  .feld{display:flex;align-items:stretch;border:1.5px solid #d1d5db;border-radius:9px;overflow:hidden;transition:border-color .15s}
+  .feld:focus-within{border-color:#E8630A}
+  .feld input{flex:1;min-width:0;border:none;outline:none;padding:12px 12px;font-size:15px;font-family:inherit}
+  .feld span{display:flex;align-items:center;padding:0 12px;background:#f3f4f6;color:#6b7280;font-size:14px;white-space:nowrap}
+  .fehler{display:none;color:#b91c1c;font-size:12.5px;margin-top:8px}
+  button{width:100%;margin-top:16px;padding:13px;border:none;border-radius:9px;background:#E8630A;color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
+  button:hover{background:#cf5608}
+  .merken{display:flex;gap:8px;align-items:center;font-size:13px;color:#4b5563;margin-top:12px}
+  .hinweis{font-size:12.5px;color:#6b7280;line-height:1.6;margin-top:22px;padding-top:18px;border-top:1px solid #e5e7eb}
+  .hinweis a{color:#0f1f3d;font-weight:600}
+  footer{text-align:center;padding:20px;font-size:12px;color:rgba(255,255,255,.45)}
+  footer a{color:rgba(255,255,255,.45)}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">Central<span>Desk</span></a>
+  <a href="/#demo">Demo testen</a>
+</nav>
+<main>
+  <form class="box" id="login" novalidate>
+    <h1>Kunden-Login</h1>
+    <p class="sub">Jede Verwaltung arbeitet unter ihrer eigenen Adresse. Geben Sie Ihr Kundenkürzel ein – Sie finden es in Ihrer Begrüßungs-E-Mail.</p>
+    <label for="kuerzel">Ihr Kundenkürzel</label>
+    <div class="feld"><input id="kuerzel" name="kuerzel" autocomplete="organization" autocapitalize="none" spellcheck="false" placeholder="ihre-verwaltung" maxlength="40"><span>.central-desk.de</span></div>
+    <div class="fehler" id="fehler">Bitte nur Kleinbuchstaben, Ziffern und Bindestriche (3 bis 40 Zeichen).</div>
+    <label class="merken"><input type="checkbox" id="merken" checked> Auf diesem Gerät merken</label>
+    <button type="submit">Weiter zur Anmeldung →</button>
+    <p class="hinweis">Kürzel vergessen? Schreiben Sie uns an <a href="mailto:hello@central-desk.de">hello@central-desk.de</a>.<br>
+      Noch kein Kunde? <a href="/#demo">Demo mit Musterdaten testen</a></p>
+  </form>
+</main>
+<footer><a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></footer>
+<script>
+(function(){
+  var SPEICHER='cd_kundenkuerzel', RESERVIERT=/^(www|app|demo|sa|cd|api|mail|admin|dev|staging|trial|ratelimit|laufwerk)$/;
+  var inp=document.getElementById('kuerzel'), fehler=document.getElementById('fehler'), merken=document.getElementById('merken');
+  function ziel(k){ return k==='immorior' ? 'https://app.central-desk.de' : 'https://'+k+'.central-desk.de'; }
+  function sauber(v){ return String(v||'').trim().toLowerCase().replace(/^https?:\/\//,'').replace(/\.central-desk\.de.*$/,'').replace(/\s+/g,'-'); }
+  var gespeichert=''; try{ gespeichert=localStorage.getItem(SPEICHER)||''; }catch(e){}
+  var q=new URLSearchParams(location.search).get('k');
+  if(q) inp.value=sauber(q); else if(gespeichert) inp.value=gespeichert;
+  inp.focus();
+  document.getElementById('login').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var k=sauber(inp.value);
+    if(!/^[a-z0-9][a-z0-9-]{1,38}[a-z0-9]$/.test(k) || RESERVIERT.test(k)){ fehler.style.display='block'; inp.focus(); return; }
+    fehler.style.display='none';
+    try{ if(merken.checked) localStorage.setItem(SPEICHER,k); else localStorage.removeItem(SPEICHER); }catch(e){}
+    location.href=ziel(k);
+  });
+})();
+</script>
+</body>
+</html>

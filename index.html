@@ -340,8 +340,8 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
     <a href="#pricing">Preise</a>
     <a href="/weg-selbstverwaltung" style="color:#f59e0b;font-weight:600;">WEG-Selbstverwaltung</a>
     <a href="#kontakt">Kontakt</a>
-    <a href="https://app.central-desk.de" target="_blank">Login ↗</a>
-    <a href="#demo" class="nav-cta">Demo anfordern</a>
+    <a href="/login">Kunden-Login</a>
+    <a href="#demo" class="nav-cta">Demo testen</a>
   </div>
 </nav>
 
@@ -1900,8 +1900,8 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
         <a href="#individuell">Individualisierung</a>
         <a href="#vorteile">Warum Central Desk</a>
         <a href="#pricing">Preise</a>
-        <a href="#demo">Demo anfordern</a>
-        <a href="https://app.central-desk.de" target="_blank">Login ↗</a>
+        <a href="#demo">Demo testen</a>
+        <a href="/login">Kunden-Login</a>
       </div>
     </div>
     <div>
@@ -2048,7 +2048,7 @@ function validateMandantId(inp) {
   var v = inp.value;
   var hint = document.getElementById('s-mandant-hint');
   if(/^[a-z0-9][a-z0-9-]{2,29}$/.test(v)) {
-    if(hint){ hint.style.color='#4ADE80'; hint.textContent='✓ Gültige App-Adresse: app.central-desk.de?mandant='+v; }
+    if(hint){ hint.style.color='#4ADE80'; hint.textContent='✓ Ihre Adresse: '+v+'.central-desk.de'; }
     inp.style.borderColor='rgba(74,222,128,.5)';
   } else {
     if(hint){ hint.style.color='rgba(255,255,255,.4)'; hint.textContent='Nur Kleinbuchstaben, Zahlen und Bindestriche. 3-30 Zeichen.'; }
