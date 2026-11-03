@@ -1285,9 +1285,9 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
         <span>Ihre verwalteten Einheiten</span>
         <strong id="calc-einh-val">50</strong>
       </div>
-      <input type="range" class="calc-slider" id="calc-slider" min="1" max="400" value="50" oninput="calcUpdate()">
+      <input type="range" class="calc-slider" id="calc-slider" min="1" max="1500" value="50" oninput="calcUpdate()">
       <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.3);margin-top:5px;">
-        <span>1</span><span>100</span><span>200</span><span>300</span><span>400+</span>
+        <span>1</span><span>250</span><span>500</span><span>1.000</span><span>1.500+</span>
       </div>
     </div>
 
@@ -1455,7 +1455,7 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
       <div style="flex:1;min-width:120px;">
         <div style="font-size:32px;font-weight:900;color:#e8630a;">250+</div>
         <div style="font-size:12px;color:#6b7280;font-weight:600;">Einheiten</div>
-        <div style="margin-top:6px;background:#f0fdf4;border-radius:8px;padding:6px 10px;font-size:12px;color:#166534;font-weight:600;">Enterprise · 229 €</div>
+        <div style="margin-top:6px;background:#f0fdf4;border-radius:8px;padding:6px 10px;font-size:12px;color:#166534;font-weight:600;">Enterprise · ab 229 €</div>
       </div>
     </div>
     <p style="text-align:center;color:#6b7280;font-size:13px;margin-top:24px;font-style:italic;">
@@ -1632,11 +1632,12 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
     </div>
     <div class="pc">
       <div class="pc-tier">Großverwaltung</div><div class="pc-name">Enterprise</div>
-      <div class="pc-amount"><sup>&euro;</sup>229<sub>/Monat</sub></div>
-      <div class="pc-disc">Jährlich im Voraus: 206,10 &euro;/Monat (&minus;10%)<br>2-Jahresvertrag: 194,65 &euro;/Monat (&minus;15%)</div>
+      <div class="pc-amount"><sub style="font-size:14px;margin-right:4px;">ab</sub><sup>&euro;</sup>229<sub>/Monat</sub></div>
+      <div class="pc-disc">Jährlich im Voraus: ab 206,10 &euro;/Monat (&minus;10%)<br>2-Jahresvertrag: ab 194,65 &euro;/Monat (&minus;15%)</div>
       <div class="pc-desc">Für professionelle Großverwaltungen ohne Einheitengrenze. Skalierbar ohne Softwarewechsel.</div>
       <ul class="pc-feats">
-        <li><strong>Unbegrenzte Verwaltungseinheiten</strong></li>
+        <li><strong>500 Verwaltungseinheiten inklusive</strong></li>
+        <li><span>Jede weitere Einheit <strong>0,45&nbsp;&euro;/Monat</strong> &mdash; ohne Obergrenze</span></li>
         <li>Alle 70+ Module inklusive</li>
         <li>Vollständige Plattform ohne Abstriche</li>
         <li>Von 30 auf 1.000+ &mdash; ein System</li>
@@ -1733,7 +1734,7 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
               <option value="">Bitte wählen (optional)</option>
               <option>Professional — bis 100 Einheiten (99 €/Monat)</option>
               <option>Business — bis 250 Einheiten (149 €/Monat)</option>
-              <option>Enterprise — unbegrenzt (229 €/Monat)</option>
+              <option>Enterprise — ab 229 €/Monat (500 Einheiten inkl., je weitere 0,45 €)</option>
               <option>Noch nicht sicher</option>
             </select>
           </div>
@@ -1952,7 +1953,7 @@ function calcSetLz(lz) {
 }
 function calcUpdate() {
   var einh = parseInt(document.getElementById('calc-slider').value) || 1;
-  document.getElementById('calc-einh-val').textContent = einh > 380 ? '400+' : einh;
+  document.getElementById('calc-einh-val').textContent = einh >= 1500 ? '1.500+' : einh.toLocaleString('de-DE');
   var tier, base, note;
   if (einh <= 100) {
     tier = 'Professional'; base = 99.00;
@@ -1961,12 +1962,11 @@ function calcUpdate() {
     tier = 'Business'; base = 149.00;
     note = 'Business &mdash; bis 250 Einheiten &middot; Alle Module, KI unbegrenzt &middot; IMMI als Add-on';
   } else {
-    tier = 'Enterprise'; base = 229.00;
-    note = 'Enterprise &mdash; unbegrenzte Einheiten &middot; Vollständige Plattform &middot; Skalierbar ohne Softwarewechsel';
-  }
-  // Legacy fallback (never reached but kept for structure)
-  if(false) { var extra = einh > 480 ? '150+' : (einh - 250);
-    note = 'Business &mdash; ' + (einh>480?'500+':einh) + ' Einheiten &middot; 299 € + ' + extra + ' × 0,99 €';
+    // Enterprise (ab 03.11.2026): 229 € inkl. 500 Einheiten, jede weitere Einheit 0,45 €/Monat
+    var mehr = Math.max(0, einh - 500);
+    tier = 'Enterprise'; base = Math.round((229.00 + mehr * 0.45) * 100) / 100;
+    note = mehr ? 'Enterprise &mdash; 229 € inkl. 500 Einheiten + ' + mehr.toLocaleString('de-DE') + ' × 0,45 € &middot; Vollständige Plattform'
+                : 'Enterprise &mdash; bis 500 Einheiten inklusive, darüber 0,45 € je Einheit &middot; Vollständige Plattform';
   }
   if (_calcLz === 2) base = Math.round(base * 0.85 * 100) / 100;
   else if (_calcLz === 1) base = Math.round(base * 0.90 * 100) / 100;
