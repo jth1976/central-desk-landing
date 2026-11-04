@@ -31,7 +31,24 @@
 
 - [Startseite: Funktionen, Preise, Vergleich](https://www.central-desk.de/)
 - [WEG-Selbstverwaltung für Gemeinschaften ohne Verwalter](https://www.central-desk.de/weg-selbstverwaltung)
+- [Preise im Überblick](https://www.central-desk.de/preise)
+- [Software für Mietverwaltung](https://www.central-desk.de/mietverwaltung-software)
+- [Software für WEG-Verwaltung](https://www.central-desk.de/weg-verwaltung-software)
+- [Eigentümerversammlung online (virtuell/hybrid)](https://www.central-desk.de/eigentuemerversammlung-online)
+- [Beschlusssammlung digital](https://www.central-desk.de/beschlusssammlung-digital)
 - [Ratgeber: Rechtsprechung und Praxiswissen für Hausverwaltungen](https://www.central-desk.de/ratgeber/)
+
+## Ratgeber (Praxiswissen)
+
+- [Mahnwesen in 4 Stufen – der rechtssichere Ablauf für Hausverwaltungen](https://www.central-desk.de/ratgeber/mahnwesen-4-stufen)
+- [Nebenkostenabrechnung: Fristen, Verteilerschlüssel und häufige Fehler](https://www.central-desk.de/ratgeber/nebenkostenabrechnung)
+- [Hausgeld vs. Nebenkosten – was ist der Unterschied?](https://www.central-desk.de/ratgeber/hausgeld-vs-nebenkosten)
+- [Digitale Eigentümerversammlung – virtuell, hybrid oder im Umlaufverfahren](https://www.central-desk.de/ratgeber/digitale-eigentuemer-versammlung)
+- [GoBD in der Hausverwaltung – was Ihre Software leisten muss](https://www.central-desk.de/ratgeber/gobd-hausverwaltung)
+- [Anlage V für Vermieter – welche Kosten sind absetzbar?](https://www.central-desk.de/ratgeber/anlage-v-vermieter)
+
+## Weitere
+
 - [Impressum](https://www.central-desk.de/impressum)
 
 ## Kontakt
