@@ -1,0 +1,25 @@
+# Central Desk – www.central-desk.de
+# Suchmaschinen und KI-Assistenten sind ausdrücklich willkommen.
+User-agent: *
+Allow: /
+Disallow: /login
+
+# KI-Suche und -Assistenten (z. B. ChatGPT, Perplexity, Claude, Gemini)
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://www.central-desk.de/sitemap.xml

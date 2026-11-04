@@ -1,0 +1,40 @@
+# Central Desk
+
+> Central Desk ist eine webbasierte Software für Hausverwaltungen in Deutschland: WEG-, Miet-, Sondereigentums- (SEV) und Gewerbeverwaltung mit Buchhaltung, Banking-Anbindung, Eigentümer- und Mieterportal, Online-Eigentümerversammlung, Beschlusssammlung und Dokumentenverwaltung. Anbieter: IMMORIOR, Inh. Jan-Thorsten Holm, Mittelweg 162, 20148 Hamburg. Entwickelt aus der Praxis einer Hamburger Hausverwaltung.
+
+## Für wen
+
+- Hausverwaltungen (WEG-, Miet-, SEV- und Gewerbeverwaltung) jeder Größe
+- Gemeinschaften der Wohnungseigentümer ohne externen Verwalter (Paket „WEG-Selbstverwaltung“)
+
+## Preise (Stand November 2026)
+
+- Professional: 99 € im Monat zzgl. USt, bis 100 Verwaltungseinheiten, alle Module, KI bis 100 Anfragen im Monat
+- Business: 149 € im Monat zzgl. USt, bis 250 Verwaltungseinheiten, alle Module, KI unbegrenzt
+- Enterprise: ab 229 € im Monat zzgl. USt, 500 Einheiten inklusive, jede weitere 0,45 €, ohne Obergrenze
+- Jährliche Zahlung: 10 % Nachlass; 2-Jahresvertrag: 15 % Nachlass; keine Einrichtungsgebühr, keine Modulpreise
+- WEG-Selbstverwaltung: 9,99 € je Einheit und Monat inkl. USt, 12 Monate Mindestlaufzeit, danach monatlich kündbar, 14 Tage Widerrufsrecht
+- Kostenlose Demo mit Musterdaten vor Vertragsschluss
+
+## Funktionen
+
+- WEG-Verwaltung: Eigentümerversammlung mit Online-Abstimmung, Beschlusssammlung nach § 24 Abs. 7 WEG, Wirtschaftsplan, Hausgeld, Jahres- und Einzelabrechnung
+- Mietverwaltung: Mieterstammdaten, Mietbuchhaltung, Betriebskostenabrechnung, Mieterhöhungen, Mahnwesen
+- Sondereigentums- und Gewerbeverwaltung mit eigener Buchhaltung und Umsatzsteuer
+- Banking über BANKSapi (BaFin-reguliert): Kontoabgleich, SEPA-Lastschrift
+- Eigentümer-, Mieter- und Beiratsportal: Dokumente, Nachrichten, Schadensmeldungen
+- Dokumentenverwaltung (DMS), E-Signing, Ticket- und Schadensmanagement, Handwerker- und Dienstleisterverwaltung
+- KI-Assistent, Paragraf-Radar für aktuelle Rechtsprechung
+- Hosting in Frankfurt am Main, Daten je Mandant getrennt, Auftragsverarbeitungsvertrag nach Art. 28 DSGVO
+
+## Seiten
+
+- [Startseite: Funktionen, Preise, Vergleich](https://www.central-desk.de/)
+- [WEG-Selbstverwaltung für Gemeinschaften ohne Verwalter](https://www.central-desk.de/weg-selbstverwaltung)
+- [Ratgeber: Rechtsprechung und Praxiswissen für Hausverwaltungen](https://www.central-desk.de/ratgeber/)
+- [Impressum](https://www.central-desk.de/impressum)
+
+## Kontakt
+
+- E-Mail: immorior@central-desk.de
+- Telefon: +49 40 237 241 242 (Mo–Fr 9–17 Uhr)
