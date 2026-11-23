@@ -44,13 +44,13 @@
   --shadow-lg:0 20px 72px rgba(15,31,61,.18);
 }
 html{scroll-behavior:smooth;}
-body{padding-top:106px;}body{font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text);background:var(--white);overflow-x:hidden;line-height:1.65;}
+body{padding-top:64px;}body{font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text);background:var(--white);overflow-x:hidden;line-height:1.65;}
 h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;line-height:1.18;letter-spacing:-.02em;}
 a{color:inherit;text-decoration:none;}
 img{max-width:100%;display:block;}
 
 /* NAV */
-nav{position:fixed;top:42px;left:0;right:0;z-index:200;height:64px;background:rgba(15,31,61,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;padding:0 5%;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;background:rgba(15,31,61,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;padding:0 5%;}
 .nav-logo{display:flex;align-items:center;gap:10px;}
 .nav-logo-mark{width:34px;height:34px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:12px;font-weight:700;color:#fff;letter-spacing:-1px;}
 .nav-logo-text{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:#fff;letter-spacing:.5px;}
@@ -317,6 +317,20 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
 .calc-res-item.highlight .calc-res-val{color:var(--orange);font-size:32px;}
 .calc-note{font-size:11px;color:rgba(255,255,255,.3);margin-top:16px;text-align:center;line-height:1.6;}
 
+  /* Gründerkunden-Tarif (23.11.2026) */
+  .gk-hero{position:relative;z-index:1;margin:0 auto 30px;max-width:820px;background:linear-gradient(135deg,#f59e0b,#E8630A);color:#fff;border-radius:18px;padding:22px 28px;box-shadow:0 18px 50px rgba(232,99,10,.35);text-align:center;}
+  .gk-hero .gk-kopf{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;opacity:.95;}
+  .gk-hero .gk-titel{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;line-height:1.15;margin:6px 0 8px;}
+  .gk-hero .gk-text{font-size:16px;line-height:1.5;}
+  .gk-hero .gk-text s{opacity:.75;}
+  .gk-hero .gk-btn{display:inline-block;margin-top:14px;background:#fff;color:#E8630A;font-weight:800;font-size:14px;padding:10px 22px;border-radius:10px;text-decoration:none;}
+  .gk-box{max-width:980px;margin:0 auto 28px;background:#fff7ed;border:2px solid #f59e0b;border-radius:16px;padding:20px 24px;text-align:center;color:#7c2d12;}
+  .gk-box h3{font-family:'Playfair Display',serif;font-size:24px;color:#9a3412;margin:0 0 6px;}
+  .gk-box p{margin:0;font-size:14.5px;line-height:1.6;}
+  .pc-alt{font-size:20px;color:#9ca3af;text-decoration:line-through;margin-right:10px;font-weight:400;}
+  .pc-gk{display:inline-block;background:#fff7ed;border:1px solid #f59e0b;color:#9a3412;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin:7px 0 4px;}
+  .pc-liste{font-size:11px;color:#6b7280;margin:0 0 12px;line-height:1.5;}
+  @media(max-width:640px){ .gk-hero{padding:18px 16px;} .gk-hero .gk-titel{font-size:25px;} .gk-hero .gk-text{font-size:14.5px;} }
   .hero-early-bird {
     display: inline-block;
     background: linear-gradient(135deg, #f59e0b, #d97706);
@@ -348,10 +362,6 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
 <body>
 
 <!-- NAV -->
-<div id="launch-banner" style="position:fixed;top:0;left:0;right:0;z-index:201;background:linear-gradient(90deg,#E8630A,#f97316);color:#fff;text-align:center;padding:8px 16px;font-size:13px;font-weight:700;height:42px;display:flex;align-items:center;justify-content:center;">
-  🚀 Start: <strong>01. Februar 2027</strong> — die Demo können Sie schon heute ausprobieren &nbsp;
-  <a href="#demo" style="color:#fff;text-decoration:underline;font-weight:800;">Zur Demo →</a>
-</div>
 <nav id="main-nav">
   <a href="/" class="nav-logo">
     <img src="data:image/png;base64,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" alt="Central Desk Logo" style="height:34px;width:auto;flex-shrink:0;background:#fff;border-radius:6px;padding:3px;">
@@ -372,7 +382,12 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
 <!-- HERO -->
 <section class="hero">
   <div class="grid-lines"></div>
-  <div class="hero-early-bird">Professional · 99 € / Monat bis 100 Einheiten · Alle Module inklusive</div>
+  <div class="gk-hero">
+    <div class="gk-kopf">Start 01. Februar 2027 · 10 Plätze</div>
+    <div class="gk-titel">Gründerkunden gesucht</div>
+    <div class="gk-text">Central Desk ist neu am Markt. Die ersten zehn Verwaltungen erhalten den <strong>Gründerkunden-Tarif</strong>:<br><strong>Professional 69 €</strong> statt <s>99 €</s> im Monat · Business 104 € · Enterprise ab 159 €<br>Preisgarantie 36 Monate · alle Module inklusive · keine Einrichtungsgebühr</div>
+    <a class="gk-btn" href="#pricing">Zum Gründerkunden-Tarif ↓</a>
+  </div>
   <h1>Die digitale Zentrale für<br><em>moderne Hausverwaltungen.</em></h1>
   <p class="hero-sub">Verwalten. Vermieten. Verkaufen. Organisieren. Alles in einem System.<br>Central Desk verbindet WEG, Mietverwaltung, SEV, Makler, CRM, Banking, KI und mehr &mdash; entwickelt aus der Praxis einer echten Hausverwaltung.</p>
   <div class="hero-btns">
@@ -380,7 +395,7 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
     <button class="btn-ghost" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Preise ansehen ↓</button>
   </div>
   <div class="hero-stats">
-    <div><div class="hs-val"><span style="font-size:22px;">🐦</span></div><div class="hs-lbl">ab 99 € / Monat</div></div>
+    <div><div class="hs-val"><span style="font-size:22px;">🐦</span></div><div class="hs-lbl">ab 69 € / Monat · Gründerkunden</div></div>
     <div><div class="hs-val">WEG<span>+</span>MV<span>+</span>SEV</div><div class="hs-lbl">Alle Verwaltungsarten</div></div>
     <div><div class="hs-val">100<span>%</span></div><div class="hs-lbl">Browser-basiert</div></div>
     <div><div class="hs-val">DSGVO<span>.</span></div><div class="hs-lbl">Konform &amp; sicher</div></div>
@@ -1319,6 +1334,7 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
       <button class="calc-opt active" id="calc-lz-0" onclick="calcSetLz(0)">Monatlich</button>
       <button class="calc-opt" id="calc-lz-1" onclick="calcSetLz(1)">Jährlich im Voraus (&minus;10%)</button>
       <button class="calc-opt" id="calc-lz-2" onclick="calcSetLz(2)">2-Jahresvertrag (&minus;15%)</button>
+      <button class="calc-opt" id="calc-lz-3" onclick="calcSetLz(3)">Gründerkunden-Tarif</button>
     </div>
 
     <div class="calc-result">
@@ -1640,16 +1656,21 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
     <p class="sec-sub">Alle 70+ Module in jedem Tarif inklusive. Der Unterschied: die Anzahl der verwalteten Einheiten &mdash; und im Einstiegspaket das KI-Kontingent. Keine Setup-Gebühr. Jahresvertrag.</p>
   </div>
   <div class="price-note-top reveal" style="text-align:center;margin-bottom:32px;font-size:14px;color:#6b7280;">
-    Alle Tarife: Alle Module inklusive &middot; Keine Setup-Gebühr &middot; Keine Modulpreise &middot; Zahlung monatlich oder jährlich im Voraus (&minus;10 %) &middot; Preise zzgl. gesetzlicher USt<br>
+    Alle Tarife: Alle Module inklusive &middot; Keine Setup-Gebühr &middot; Keine Modulpreise &middot; Zahlung monatlich oder jährlich im Voraus (&minus;10 %) &middot; Gründerkunden-Tarif: jährlich im Voraus &middot; Preise zzgl. gesetzlicher USt<br>
     <span style="color:#d97706;font-weight:600;">⚠ Buchhaltung: Early Access. KI im Paket Professional max. 100 Anfragen/Monat, ab Business unbegrenzt.</span><br>
     <span style="font-size:12px;">Banking-Integration via <strong>BANKSapi BANKS/Connect</strong> (BaFin-reguliert, ISO 27001, 3.000+ Banken)</span>
+  </div>
+  <div class="gk-box reveal" id="gruenderkunden">
+    <h3>Gründerkunden-Tarif &mdash; für die ersten 10 Verwaltungen</h3>
+    <p>Central Desk startet am 01.02.2027. Wer von Anfang an dabei ist, zahlt <strong>rund 30 % weniger als den Listenpreis – fest für 36 Monate</strong> ab Vertragsbeginn. Zahlung jährlich im Voraus, Mindestlaufzeit 12 Monate, voller Funktionsumfang des gewählten Pakets. Nicht mit den Rabatten für Jahres- oder 2-Jahres-Zahlung kombinierbar. Nach Ablauf der Preisgarantie gilt der dann gültige Listenpreis.</p>
   </div>
   <div class="price-grid reveal">
     <div class="pc feat-eb">
       <div class="pc-tier" style="background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;">Einstieg</div>
       <div class="pc-name">Professional</div>
-      <div class="pc-amount"><sup>&euro;</sup>99<sub>/Monat</sub></div>
-      <div class="pc-disc">Jährlich im Voraus: 89,10 &euro;/Monat (&minus;10%)<br>2-Jahresvertrag: 84,15 &euro;/Monat (&minus;15%)</div>
+      <div class="pc-amount"><span class="pc-alt">99 &euro;</span><sup>&euro;</sup>69<sub>/Monat</sub></div>
+      <div class="pc-gk">Gründerkunden-Tarif &middot; &minus;30 % &middot; Preisgarantie 36 Monate</div>
+      <div class="pc-liste">Listenpreis 99 &euro;/Monat &middot; jährlich im Voraus 89,10 &euro; (&minus;10 %) &middot; 2-Jahresvertrag 84,15 &euro; (&minus;15 %)</div>
       <div class="pc-desc">Für Verwaltungen bis 100 Einheiten. Alle Module inklusive &mdash; zum fairen Einstiegspreis.</div>
       <ul class="pc-feats">
         <li>Bis zu <strong>100 Verwaltungseinheiten</strong></li>
@@ -1664,8 +1685,9 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
     </div>
     <div class="pc feat">
       <div class="pc-tier feat">Wachstum</div><div class="pc-name">Business</div>
-      <div class="pc-amount"><sup>&euro;</sup>149<sub>/Monat</sub></div>
-      <div class="pc-disc">Jährlich im Voraus: 134,10 &euro;/Monat (&minus;10%)<br>2-Jahresvertrag: 126,65 &euro;/Monat (&minus;15%)</div>
+      <div class="pc-amount"><span class="pc-alt">149 &euro;</span><sup>&euro;</sup>104<sub>/Monat</sub></div>
+      <div class="pc-gk">Gründerkunden-Tarif &middot; &minus;30 % &middot; Preisgarantie 36 Monate</div>
+      <div class="pc-liste">Listenpreis 149 &euro;/Monat &middot; jährlich im Voraus 134,10 &euro; (&minus;10 %) &middot; 2-Jahresvertrag 126,65 &euro; (&minus;15 %)</div>
       <div class="pc-desc">Für wachsende Verwaltungen bis 250 Einheiten. Alle Funktionen &mdash; deutlich unter dem Marktdurchschnitt.</div>
       <ul class="pc-feats">
         <li>Bis zu <strong>250 Verwaltungseinheiten</strong></li>
@@ -1681,8 +1703,9 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
     </div>
     <div class="pc">
       <div class="pc-tier">Großverwaltung</div><div class="pc-name">Enterprise</div>
-      <div class="pc-amount"><sub style="font-size:14px;margin-right:4px;">ab</sub><sup>&euro;</sup>229<sub>/Monat</sub></div>
-      <div class="pc-disc">Jährlich im Voraus: ab 206,10 &euro;/Monat (&minus;10%)<br>2-Jahresvertrag: ab 194,65 &euro;/Monat (&minus;15%)</div>
+      <div class="pc-amount"><span class="pc-alt">229 &euro;</span><sub style="font-size:14px;margin-right:4px;">ab</sub><sup>&euro;</sup>159<sub>/Monat</sub></div>
+      <div class="pc-gk">Gründerkunden-Tarif &middot; &minus;30 % &middot; Preisgarantie 36 Monate</div>
+      <div class="pc-liste">Listenpreis ab 229 &euro;/Monat &middot; jährlich im Voraus ab 206,10 &euro; (&minus;10 %) &middot; 2-Jahresvertrag ab 194,65 &euro; (&minus;15 %)</div>
       <div class="pc-desc">Für professionelle Großverwaltungen ohne Einheitengrenze. Skalierbar ohne Softwarewechsel.</div>
       <ul class="pc-feats">
         <li><strong>500 Verwaltungseinheiten inklusive</strong></li>
@@ -1805,6 +1828,7 @@ input[type=range].calc-slider::-moz-range-thumb{width:22px;height:22px;border-ra
             <label class="fg-label">Gewünschter Tarif</label>
             <select class="fg-inp" id="f-tarif">
               <option value="">Bitte wählen (optional)</option>
+              <option>Gründerkunden-Tarif — bitte Platz reservieren (Professional 69 € · Business 104 € · Enterprise ab 159 €)</option>
               <option>Professional — bis 100 Einheiten (99 €/Monat)</option>
               <option>Business — bis 250 Einheiten (149 €/Monat)</option>
               <option>Enterprise — ab 229 €/Monat (500 Einheiten inkl., je weitere 0,45 €)</option>
@@ -2024,7 +2048,7 @@ document.querySelectorAll('.mod-card').forEach(function(card) {
 var _calcLz = 0; // 0 = monatlich (Listenpreis), 1 = jährlich im Voraus (−10 %), 2 = 2-Jahresvertrag (−15 %)
 function calcSetLz(lz) {
   _calcLz = lz;
-  [0,1,2].forEach(function(i){ document.getElementById('calc-lz-'+i).className = 'calc-opt' + (lz===i?' active':''); });
+  [0,1,2,3].forEach(function(i){ document.getElementById('calc-lz-'+i).className = 'calc-opt' + (lz===i?' active':''); });
   calcUpdate();
 }
 function calcUpdate() {
@@ -2044,13 +2068,14 @@ function calcUpdate() {
     note = mehr ? 'Enterprise &mdash; 229 € inkl. 500 Einheiten + ' + mehr.toLocaleString('de-DE') + ' × 0,45 € &middot; Vollständige Plattform'
                 : 'Enterprise &mdash; bis 500 Einheiten inklusive, darüber 0,45 € je Einheit &middot; Vollständige Plattform';
   }
-  if (_calcLz === 2) base = Math.round(base * 0.85 * 100) / 100;
+  if (_calcLz === 3) base = Math.round(((tier === 'Professional' ? 69 : tier === 'Business' ? 104 : 159) + (tier === 'Enterprise' ? Math.max(0, einh - 500) * 0.45 : 0)) * 100) / 100;   // Gründerkunden-Tarif: fester Preis je Paket, weitere Einheiten unverändert
+  else if (_calcLz === 2) base = Math.round(base * 0.85 * 100) / 100;
   else if (_calcLz === 1) base = Math.round(base * 0.90 * 100) / 100;
   var jahr = Math.round(base * 12);
   document.getElementById('calc-tier').textContent = tier;
   document.getElementById('calc-preis').innerHTML = base.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}) + ' €';
   document.getElementById('calc-jahr').innerHTML = jahr.toLocaleString('de-DE') + ' €';
-  document.getElementById('calc-note').innerHTML = note + (_calcLz===2?' &middot; <strong style="color:#4ADE80;">-15% Rabatt (24 Monate, jährlich im Voraus)</strong>':_calcLz===1?' &middot; <strong style="color:#4ADE80;">-10% Rabatt (jährlich im Voraus)</strong>':' &middot; Rechnung monatlich zum 1.');
+  document.getElementById('calc-note').innerHTML = note + (_calcLz===3?' &middot; <strong style="color:#4ADE80;">Gründerkunden-Tarif (jährlich im Voraus, Preisgarantie 36 Monate, 10 Plätze)</strong>':_calcLz===2?' &middot; <strong style="color:#4ADE80;">-15% Rabatt (24 Monate, jährlich im Voraus)</strong>':_calcLz===1?' &middot; <strong style="color:#4ADE80;">-10% Rabatt (jährlich im Voraus)</strong>':' &middot; Rechnung monatlich zum 1.');
 }
 calcUpdate();
 
